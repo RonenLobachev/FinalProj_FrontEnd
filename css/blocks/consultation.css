@@ -1,0 +1,13 @@
+.consultation {
+    min-height: 680px;
+    padding: 100px 0 92px 0;
+    background: url(../images/bg/lay_foots_2.png) center center/cover no-repeat;
+}
+
+.consultation__descr {
+    margin-top: 80px;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 500;
+}

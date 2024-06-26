@@ -1,0 +1,18 @@
+
+* {
+    font-family: 'Museo Sans Cyrl', sans-serif;
+}
+
+.container {
+    max-width: auto;
+    margin: 0 auto;
+}
+
+
+@import url('blocks/promo.css'); 
+@import url('blocks/header.css'); 
+@import url('blocks/button.css'); 
+@import url('blocks/advantages.css'); 
+@import url('blocks/title.css'); 
+@import url('blocks/consultation.css'); 
+@import url('blocks/forms.css'); 
