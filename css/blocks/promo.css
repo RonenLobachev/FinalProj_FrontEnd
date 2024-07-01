@@ -4,29 +4,14 @@
     background: url('../images/bg/lay_header_1.png') center center/cover no-repeat;
 }
 
-.promo__wrapper {
-    margin-top: 90px;
+.promo_wrapper {
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
-.promo__header {
-    color: #ffffff;
-    font-size: 40x;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.promo__subheader {
-    margin-top: 20px;
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: 500;
-    text-transform: uppercase;
-}
-
-.promo__icons {
+.promo_icons {
     display: flex;
     width: 450px;
     justify-content: space-between;
@@ -34,7 +19,7 @@
     margin-top: 70px;
 }
 
-.promo__icon {
+.promo_icon {
     width: 100px;
     color: #ffffff;
     font-size: 14px;
@@ -42,20 +27,20 @@
     text-align: center;
 }
 
-.promo__icon img {
+.promo_icon img {
     display: block;
     margin: 0 auto;
     color: #ffffff;
 }
 
-.promo__link {
+.promo_link {
     margin-top: 20px;
     color: #ffffff;
     font-size: 16px;
     font-weight: 500;
 }
 
-.promo__link a {
+.promo_link a {
     color: #ffffff;
     text-decoration: underline;
     text-decoration: none;

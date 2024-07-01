@@ -4,34 +4,34 @@
     background-color: #f6f6f6;
 }
 
-.advantages__wrapper {
+.advantages_wrapper {
     margin-top: 65px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.advantages__item {
+.advantages_item {
     width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.advantages__subtitle {
+.advantages_subtitle {
     color: #0d0d0d;
     font-size: 18px;
     font-weight: 700;
 }
 
-.advantages__descr {
+.advantages_descr {
     color: #0d0d0d;
     font-size: 14px;
     font-weight: 300;
     text-align: center;
 }
 
-.advantages__descr span {
+.advantages_descr span {
     color: #ff0000;
     text-decoration: underline;
 }
