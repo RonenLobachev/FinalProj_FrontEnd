@@ -7,7 +7,6 @@
         <meta name="description" content="Get the best heart rate monitor for your fitness level. Official representatives of Garmin, Polar, Suunto. Free consultation available.">
         <title>Document</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/stylesheet.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
@@ -21,7 +20,8 @@
                     </div>
                     <div class="header__contacts">
                         <a href="tel:+972523485965" class="header__phone">(+972) 52-348-5965</a>
-                        <button class="button" aria-label="Order a call">Order a call</button>
+                        <!--Add variable send for chagne view of consultation form according to button press(back call of consultation)-->
+                        <button class="button" onclick="window.location.href='consultation_form.html'" aria-label="Order a call">Order a call</button>
                     </div>
                 </header>
                 <div class="promo__wrapper">
@@ -32,7 +32,8 @@
                         <div class="promo__icon"><img src="css/icons/header/hand-cart.svg" alt="Free delivery">Free delivery</div>
                         <div class="promo__icon"><img src="css/icons/header/messages.svg" alt="We answer all questions">We answer all questions</div>
                     </div>
-                    <button class="button button_main" aria-label="Order a consultation">Order a consultation</button>
+                    <!--Add variable send for chagne view of consultation form according to button press(back call of consultation)-->
+                    <button class="button button_main" onclick="window.location.href='consultation_form.html'" aria-label="Order a consultation">Order a consultation</button>
                     <div class="promo__link">or <a href="#">Go to catalog</a></div>
                 </div>
             </div>
@@ -57,18 +58,6 @@
                         <div class="advantages__descr">We help with learning the correct running technique! We are friends with the largest running school in Russia - <span>I LOVE RUNNING.</span></div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="consultation">
-            <div class="container">
-                <h2 class="title title_left">Get a free consultation<br> on heart rate monitor selection</h2>
-                <div class="consultation__descr">Just fill out the application form<br> and we will call you back within 10 minutes</div>
-                <form class="feed-form" novalidate>
-                    <input name="name" required placeholder="Your name" type="text">
-                    <input name="phone" required placeholder="Your phone" type="tel" pattern="[0-9]{10}">
-                    <input name="email" required placeholder="Your E-mail" type="email">
-                    <button class="button button_submit" aria-label="Submit the consultation form">Order a consultation</button>
-                </form>
             </div>
         </section>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

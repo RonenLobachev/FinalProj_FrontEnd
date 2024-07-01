@@ -22,16 +22,31 @@ h1, h2 {
     padding: 0 15px;
 }
 
+@font-face {
+    font-family: 'Museo Sans Cyrl';
+    src: local('MuseoSansCyrl-500'),
+        url('../fonts/MuseoSansCyrl-500.woff2') format('woff2'),
+        url('../fonts/MuseoSansCyrl-500.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
 
-<<<<<<< HEAD
+@font-face {
+    font-family: 'Museo Sans Cyrl';
+    src: local('MuseoSansCyrl-300'),
+        url('../fonts/MuseoSansCyrl-300.woff2') format('woff2'),
+        url('../fonts/MuseoSansCyrl-300.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
 
-=======
-@import url('blocks/promo.css'); 
-@import url('blocks/header.css'); 
-@import url('blocks/button.css'); 
-@import url('blocks/advantages.css'); 
-@import url('blocks/title.css'); 
-@import url('blocks/consultation.css'); 
-@import url('blocks/forms.css');
-sdgsdg
->>>>>>> 02d8e2333d47a7685e0939a63d2840ca57d78af2
+@font-face {
+    font-family: 'Museo Sans Cyrl';
+    src: local('MuseoSansCyrl-700'),
+        url('../fonts/MuseoSansCyrl-700.woff2') format('woff2'),
+        url('../fonts/MuseoSansCyrl-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
