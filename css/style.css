@@ -1,18 +1,26 @@
+@import url('blocks/promo.css');
+@import url('blocks/header.css');
+@import url('blocks/button.css'); 
+@import url('blocks/advantages.css');
+@import url('blocks/title.css'); 
+@import url('blocks/consultation.css'); 
+@import url('blocks/forms.css');
 
-* {
-    font-family: 'Museo Sans Cyrl', sans-serif;
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2 {
+    color: #222;
 }
 
 .container {
-    max-width: auto;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 
-@import url('blocks/promo.css'); 
-@import url('blocks/header.css'); 
-@import url('blocks/button.css'); 
-@import url('blocks/advantages.css'); 
-@import url('blocks/title.css'); 
-@import url('blocks/consultation.css'); 
-@import url('blocks/forms.css'); 
+
