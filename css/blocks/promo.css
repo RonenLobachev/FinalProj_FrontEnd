@@ -1,11 +1,11 @@
 .promo {
     min-height: 650px;
-    padding: 21px 0 93px 0;
+    padding: 20px 0 90px 0;
     background: url('../images/bg/lay_header_1.png') center center/cover no-repeat;
 }
 
 .promo__wrapper {
-    margin-top: 91px;
+    margin-top: 90px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -13,13 +13,13 @@
 
 .promo__header {
     color: #ffffff;
-    font-size: 42px;
+    font-size: 40x;
     font-weight: 700;
     text-transform: uppercase;
 }
 
 .promo__subheader {
-    margin-top: 17px;
+    margin-top: 20px;
     color: #ffffff;
     font-size: 24px;
     font-weight: 500;
@@ -31,11 +31,11 @@
     width: 450px;
     justify-content: space-between;
     align-items: center;
-    margin-top: 67px;
+    margin-top: 70px;
 }
 
 .promo__icon {
-    width: 108px;
+    width: 100px;
     color: #ffffff;
     font-size: 14px;
     font-weight: 500;
@@ -49,7 +49,7 @@
 }
 
 .promo__link {
-    margin-top: 18px;
+    margin-top: 20px;
     color: #ffffff;
     font-size: 16px;
     font-weight: 500;
