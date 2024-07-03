@@ -1,0 +1,25 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+}
+.footer_wrapper {
+    
+}
+.social_icons {
+    display: flex;
+    width: 350px;
+    padding: 10px 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: #c70101; 
+    margin: 20px 0;
+}
+.social_icon {
+    width: 30px;
+    margin: 0 5px;
+}
+.social_icon img {
+    display: block;
+    margin: 0 auto;
+    
+}

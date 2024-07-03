@@ -6,6 +6,7 @@
 @import url('blocks/consultation.css'); 
 @import url('blocks/forms.css');
 @import url('blocks/catalog.css');
+@import url('blocks/footer.css');
 
 body {
     font-family: Arial, sans-serif;
