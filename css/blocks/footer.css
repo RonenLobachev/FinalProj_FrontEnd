@@ -1,25 +1,53 @@
 .footer {
+    position: relative;
     display: flex;
-    flex-direction: column;
 }
 .footer_wrapper {
+    position: absolute;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
     
+    width: 350px;
+    height: 150px;
+    justify-content:center;
+    align-items: center;
+    background-color: #c70101;
+}
+
+.footer_address {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+  }
+.footer_ssocial {
+    
+}
+.footer_phone {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
 }
 .social_icons {
     display: flex;
-    width: 350px;
-    padding: 10px 50px;
+    width: 150px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
     justify-content: center;
     align-items: center;
-    background-color: #c70101; 
-    margin: 20px 0;
 }
 .social_icon {
     width: 30px;
+    height: 30px;
     margin: 0 5px;
+    justify-content: center;
+    align-items: center;
 }
 .social_icon img {
-    display: block;
-    margin: 0 auto;
+    
+    width: 100%;
+    height: 100%;
     
 }
