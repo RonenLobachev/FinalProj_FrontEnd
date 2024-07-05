@@ -76,3 +76,9 @@
     font-size: 20px;
     font-weight: 700;
 }
+.catalog_footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}

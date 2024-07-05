@@ -18,7 +18,10 @@
                     <input name="name" required placeholder="Your name" type="text">
                     <input name="phone" required placeholder="Your phone" type="tel" pattern="[0-9]{10}">
                     <input name="email" required placeholder="Your E-mail" type="email">
-                    <button class="button button_submit" aria-label="Submit the consultation form">Order a consultation</button>
+                    <div class="feed-form_buttons">
+                        <button class="button button_submit" type="submit" aria-label="Submit the consultation form">Order a consultation</button>
+                        <button class="button button_back" type="button" onclick="window.location.href='index.html'" aria-label="Back">Back</button>
+                    </div>
                 </form>
             </div>
         </section>
