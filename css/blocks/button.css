@@ -27,3 +27,6 @@
 .button_mini {
     width: 100px;
 }
+.button_dropdown {
+    margin: 0 10px;
+}

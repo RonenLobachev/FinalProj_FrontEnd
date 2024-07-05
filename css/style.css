@@ -21,6 +21,10 @@ body {
     padding: 0 15px;
 }
 
+.bg-nav {
+    background-color: #c70101;
+}
+
 @font-face {
     font-family: 'Museo Sans Cyrl';
     src: local('MuseoSansCyrl-500'),
