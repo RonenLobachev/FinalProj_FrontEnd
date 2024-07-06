@@ -91,7 +91,12 @@
     }
   }
   
-  @media  (max-width: 1080px) and (min-width: 768px){
+  @media  (max-width: 1045px) and (min-width: 768px){
+    .catalog_content {
+      
+      justify-content: center;
+      
+    }
 
     .catalog .catalog-item {
       width: 230px;

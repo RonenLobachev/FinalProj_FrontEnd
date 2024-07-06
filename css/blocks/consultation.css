@@ -11,3 +11,9 @@
     line-height: 20px;
     font-weight: 500;
 }
+
+.error {
+    color: #fac003; 
+    margin-bottom: 10px;
+    display: block;
+}
