@@ -34,15 +34,10 @@
     color: #fff;
 }
 
-.promo_link {
+.promo_button_to_cart {
     margin-top: 20px;
     color: #ffffff;
     font-size: 16px;
     font-weight: 500;
 }
 
-.promo_link a {
-    color: #ffffff;
-    text-decoration: underline;
-    text-decoration: none;
-}

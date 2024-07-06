@@ -29,10 +29,11 @@
     text-transform: uppercase;
 }
 
-.header__subheader {
+.header_subheader {
     margin-top: 18px;
     color: #fff;
     font-size: 24px;
     font-weight: 500;
     text-transform: uppercase;
 }
+

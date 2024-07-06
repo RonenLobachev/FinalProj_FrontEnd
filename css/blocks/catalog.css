@@ -1,5 +1,5 @@
 .catalog {
-  padding-top: 80px;
+  padding-top: 100px;
     display: flex;
     background-color: #f6f6f6;
   }
@@ -10,7 +10,7 @@
   }
   
  .catalog_tabs {
-    margin-top: 40px;
+    margin-top: 60px;
     padding: 0;
     display: flex;
     justify-content: center;

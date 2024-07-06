@@ -1,0 +1,306 @@
+@media (max-width: 1080px) {
+    .title {
+      font-size: 28px;
+    }
+  
+    .promo {
+      min-height: 522px;
+      padding: 12px 0 46px 0;
+    }
+  
+    .header_main_title {
+      font-size: 36px;
+    }
+  
+    .header_subheader {
+      margin-top: 0;
+      font-size: 20px;
+    }
+  
+    .promo_icons {
+      margin-top: 40px;
+      width: 400px;
+    }
+  
+    .promo_icon {
+      font-size: 12px;
+    }
+  
+    .promo .button_main {
+      margin-top: 40px;
+    }
+  
+    .promo_button_to_cart {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  
+    .consultation {
+      min-height: 550px;
+      padding: 100px 0 50px 0;
+    }
+  
+    .consultation .title_left {
+      font-size: 30px;
+    }
+  
+    .consultation_descr {
+      margin-top: 46px;
+      font-size: 18px;
+      line-height: 18px;
+    }
+  
+    .feed-form {
+      margin-top: 20px;
+    }
+  
+    .feed-form input {
+      margin-bottom: 14px;
+      height: 46px;
+    }
+  
+    .button_submit {
+      height: 50px;
+      font-size: 15px;
+    }
+  
+  
+    .catalog_tabs {
+      margin-top: 20px;
+    }
+  
+    .catalog_tab {
+      width: 150px;
+      font-size: 14px;
+      line-height: 25px;
+    }
+  
+  
+    
+  
+    .footer {
+      height: 440px;
+    }
+  
+    .footer_wrapper {
+      width: 320px;
+    }
+  
+    .footer iframe {
+      height: 440px;
+    }
+  }
+  
+  @media  (max-width: 1080px) and (min-width: 768px){
+
+    .catalog .catalog-item {
+      width: 230px;
+      min-height: 350px;
+      padding: 10px;
+    }
+  
+  
+    .catalog .catalog-item img {
+      height: 160px;
+    }
+  
+    .catalog .catalog-item_subtitle {
+      margin-top: 14px;
+      font-size: 14px;
+    }
+  
+    .catalog .catalog-item_descr {
+      margin-top: 12px;
+      font-size: 12px;
+    }
+  
+    .catalog .catalog-item_link {
+      margin-top: 14px;
+      font-size: 13px;
+    }
+  
+    .catalog .catalog-item hr {
+      margin: 10px 0;
+    }
+  
+    .catalog .catalog-item_old-price {
+      font-size: 12px;
+    }
+  
+    .catalog .catalog-item_current-price {
+      font-size: 15px;
+    }
+  
+    .catalog .catalog-item .button_mini {
+      width: 80px;
+      height: 30px;
+      font-size: 13px;
+    }
+    
+  }
+  @media (max-width: 768px) {
+    .promo {
+      min-height: 400px;
+      padding: 12px 0 26px 0;
+    }
+  
+    .promo .header {
+      flex-direction: column;
+    }
+  
+    .promo .header_logo {
+      display: none;
+    }
+  
+    .promo .button_main {
+      margin-top: 60px;
+      width: 270px;
+      height: 42px;
+      font-size: 14px;
+    }
+  
+    .promo_wrapper {
+      align-items: center;
+      margin-top: 10px;
+    }
+  
+    .header_title {
+      text-align: center;
+    }
+    .header_main_title {
+      font-size: 30px;
+    }
+  
+    .header_subheader {
+      font-size: 14px;
+      
+    }
+  
+    .promo_icons {
+      margin-top: 30px;
+      width: 320px;
+    }
+  
+    .promo_icon {
+      font-size: 11px;
+    }
+  
+    .promo_button_to_cart {
+      font-size: 13px;
+    }
+  
+    .title {
+      font-size: 22px;
+    }
+  
+    .advantages {
+      padding: 34px 0 34px 0;
+    }
+  
+    .advantages_wrapper {
+      flex-direction: column;
+      margin-top: 35px;
+    }
+  
+    .advantages_item {
+      margin-bottom: 10px;
+    }
+  
+    .consultation {
+      min-height: 418px;
+      padding: 80px 0 20px 0;
+    }
+  
+    .consultation .title_left {
+      text-align: center;
+      font-size: 20px;
+      line-height: 26px;
+    }
+  
+    .consultation_descr {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 15px;
+    }
+  
+    .consultation .feed-form {
+      width: 270px;
+      margin: 20px auto;
+    }
+  
+    .consultation .feed-form input {
+      margin-bottom: 10px;
+      height: 40px;
+    }
+  
+    .consultation .feed-form .button_submit {
+      height: 40px;
+      font-size: 13px;
+    }
+  
+    .catalog {
+      margin-top: 30px;
+    }
+  
+    .catalog_tabs {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .catalog_tabs :nth-child(2) {
+      margin-left: 75px;
+    }
+  
+    .catalog_tabs :nth-child(3) {
+      margin-right: 75px;
+    }
+  
+    .catalog_tab {
+      margin-bottom: 4px;
+    }
+  
+    .catalog_content {
+      margin-top: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .catalog-item {
+      width: 300px;
+      border: 2px solid #e8e8e8;
+      padding: 20px 20px 26px 20px;
+      margin: 10px 10px;
+      background-color: #fff;
+    }
+   .catalog-item_img {
+      display: block;
+      margin: 0 auto;
+      height: 200px;
+    }
+    .catalog-item_link {
+        display: block;
+        margin-top: 20px;
+        text-decoration: underline;
+    }
+    .catalog-item_footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .catalog-item_prices {
+        margin-left: 10px;
+    }
+    .catalog-item_old-price {
+        color: #776969;
+        text-decoration: line-through;
+    
+    }
+    .catalog-item_current-price {
+        color: #b60e0e;
+        font-size: 20px;
+        font-weight: 700;
+    }
+     
+  }
+  
