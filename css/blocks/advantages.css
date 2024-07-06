@@ -35,3 +35,56 @@
     color: #ff0000;
     text-decoration: underline;
 }
+.icon_cup_animated {
+    background: linear-gradient(to right, white, hsl(0, 0%, 0%) 10%);
+    animation: shine 2s infinite linear;
+}
+.icon_heart_animated {
+    animation-name: heartbeat;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shine {
+    0% {
+      background-position: 0;
+    }
+    60% {
+      background-position: 600px;
+    }
+    100% {
+      background-position: 600px;
+    }
+  }
+  
+
+@keyframes heartbeat {
+    from {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1);
+    }
+    45% {
+      transform: scale(1.2);
+    }
+    50% {
+      transform: scale(1);
+    }
+    55% {
+      transform: scale(1.2);
+    }
+    60% {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1);
+    }
+}
+@keyframes run {
+    from {
+
+    }
+
+}

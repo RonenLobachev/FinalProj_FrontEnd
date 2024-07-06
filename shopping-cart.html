@@ -118,15 +118,87 @@
                         </div>
                 
                         <div class="card">
-                            <div class="card-body">
-                                <button  type="button" class="btn btn-danger btn-block btn-lg">To Pay</button>
+                            <div class="card-body ">
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <div class="col-md-2 col-lg-2 col-xl-2">
+                                        <button  type="button" class="btn btn-danger btn-block btn-lg" data-toggle="modal" data-target="#exampleModalCenter">To Pay</button>
+                                    </div>
+                                    <div class="row d-flex col-md-8 col-lg-8 col-xl-8">
+                                        <div class="d-flex col-md-6 col-lg-6 col-xl-6">
+                                            <div class="mx-2">
+                                                <label class="form-label" for="form1">Total price:</label>
+                                            </div>
+                                            <div class="mx-2">
+                                                <h5 class="">$1000.00</h5>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="d-flex col-md-4 col-lg-4 col-xl-4">
+                                            <div class="mx-2">
+                                                <label class="form-label" for="form1">Discount:</label>
+                                            </div>
+                                            <div class="mx-2">
+                                                <h5 class="">$000.00</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
                             </div>
                         </div>
-            
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Payment Details</h5>
+                      <button type="button" class="close bg-danger border-0" data-dismiss="modal" aria-label="Close">
+                        <span class="text-white" aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body ">
+                        <div class="row gx-3">
+                            <div class="col-12">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Person Name</p>
+                                    <input class="form-control mb-3" type="text" placeholder="Name" value="Artyom Andreychenko">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Card Number</p>
+                                    <input class="form-control mb-3" type="text" placeholder="1111 1111 111111">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">Expiry</p>
+                                    <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex flex-column">
+                                    <p class="text mb-1">CVV/CVC</p>
+                                    <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="">
+                            <div class="btn btn-danger">
+                               To Pay  
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </section>
+
         <section class="footer">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3370.863099173021!2d34.909688276137594!3d32.342384606070176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d16a555555555%3A0xeef2b9c4fa52e717!2sRuppin%20Academic%20Center!5e0!3m2!1sen!2sil!4v1720000004179!5m2!1sen!2sil" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <div class="footer_wrapper">
