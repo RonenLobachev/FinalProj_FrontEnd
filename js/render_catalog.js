@@ -46,3 +46,47 @@ async function renderCatalog(watches) {
         await new Promise(resolve => setTimeout(resolve, 2000));
     }
 }
+
+   // Function to add item to cart by ID
+   async function addToCart(itemId) {
+    let item = await getItemDetails(itemId);
+    alert(item.id);
+    if (item) {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let existingItem = cartItems.find(cartItem => cartItem.id == item.id);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            item.quantity = 1;
+            cartItems.push(item);
+        }
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  
+        let totalPrice = parseInt(localStorage.getItem('totalPrice')) || [];
+        if(totalPrice){
+          totalPrice += item.currentPrice;
+          localStorage.setItem('totalPrice', totalPrice);
+        }
+        
+        alert('Item added to cart!');
+    } else {
+        console.error('Item not found with ID: ' + itemId);
+    }
+  }
+  
+  // Function to get item details based on ID
+  async function getItemDetails(itemId) {
+      try {
+          const data = await fetch('data/watches.json');
+          if (!data.ok) {
+              throw new Error(`HTTP error! Status: ${data.status}`);
+          }
+          const watches = await data.json();
+          let item = watches.find(watch => watch.id == itemId);
+          return item;
+      } catch (error) {
+          console.error('Failed to fetch item details:', error);
+          return null;
+      }
+  }
+  

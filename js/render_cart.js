@@ -25,7 +25,7 @@ function loadCartItems() {
   
             // Image element
             let img = document.createElement('img');
-            img.src = 'css/images/' + item.image;
+            img.src = item.image;
             img.classList.add('img-fluid');
             img.alt = item.name;
   
@@ -88,7 +88,7 @@ function loadCartItems() {
             let price = document.createElement('h5');
             price.classList.add('mb-0');
             price.id = 'price'+item.id;
-            price.textContent = '$' + (item.price * item.quantity).toFixed(2);
+            price.textContent = '$' + (item.currentPrice * item.quantity).toFixed(2);
   
             // Append price to column
             colPrice.appendChild(price);
@@ -161,10 +161,10 @@ function loadCartItems() {
                 return null; 
             }
 
-            let newPrice = item.quantity*item.price;
+            let newPrice = item.quantity*item.currentPrice;
             document.getElementById('price'+item.id).textContent ='$'+newPrice.toFixed(2);
             
-            let newTotalPrice = parseInt(localStorage.getItem('totalPrice'))+item.price*amount;
+            let newTotalPrice = parseInt(localStorage.getItem('totalPrice'))+item.currentPrice*amount;
             document.getElementById('totalPrice').textContent ='$'+ newTotalPrice.toFixed(2);
             localStorage.setItem('totalPrice', newTotalPrice);
 
@@ -184,7 +184,7 @@ function loadCartItems() {
 
     cartItems.map( item => {
         if (item.id == itemId){
-            newTotalPrice = parseInt(localStorage.getItem('totalPrice')) - item.quantity*item.price;;
+            newTotalPrice = parseInt(localStorage.getItem('totalPrice')) - item.quantity*item.currentPrice;;
             document.getElementById('totalPrice').textContent ='$'+ newTotalPrice.toFixed(2);
             localStorage.setItem('totalPrice', newTotalPrice);
         }

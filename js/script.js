@@ -8,11 +8,12 @@
 
  
    // Function to add item to cart by ID
-function addToCart(itemId) {
-  let item = getItemDetails(itemId);
+async function addToCart(itemId) {
+  let item = await getItemDetails(itemId);
+  alert(item.id);
   if (item) {
       let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-      let existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+      let existingItem = cartItems.find(cartItem => cartItem.id == item.id);
       if (existingItem) {
           existingItem.quantity++;
       } else {
@@ -23,7 +24,7 @@ function addToCart(itemId) {
 
       let totalPrice = parseInt(localStorage.getItem('totalPrice')) || [];
       if(totalPrice){
-        totalPrice += item.price;
+        totalPrice += item.currentPrice;
         localStorage.setItem('totalPrice', totalPrice);
       }
       
@@ -34,17 +35,20 @@ function addToCart(itemId) {
 }
 
 // Function to get item details based on ID
-function getItemDetails(itemId) {
-  switch (itemId) {
-      case 'item1':
-          return { id: 'item1', name: 'Heart Rate Monitor FD1000', price: 500, image: 'handwatch_1.png' };
-      case 'item2':
-          return { id: 'item2', name: 'Heart Rate Monitor FD2000', price: 700, image: 'handwatch_2.png' };
-      default:
-          return null; 
-  }
+async function getItemDetails(itemId) {
+    try {
+        const data = await fetch('data/watches.json');
+        if (!data.ok) {
+            throw new Error(`HTTP error! Status: ${data.status}`);
+        }
+        const watches = await data.json();
+        let item = watches.find(watch => watch.id == itemId);
+        return item;
+    } catch (error) {
+        console.error('Failed to fetch item details:', error);
+        return null;
+    }
 }
-
 
 
 // Function to update the cart dropdown menu
