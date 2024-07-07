@@ -163,7 +163,7 @@ function loadCartItems() {
 
             let newPrice = item.quantity*item.price;
             document.getElementById('price'+item.id).textContent ='$'+newPrice.toFixed(2);
-
+            
             let newTotalPrice = parseInt(localStorage.getItem('totalPrice'))+item.price*amount;
             document.getElementById('totalPrice').textContent ='$'+ newTotalPrice.toFixed(2);
             localStorage.setItem('totalPrice', newTotalPrice);
