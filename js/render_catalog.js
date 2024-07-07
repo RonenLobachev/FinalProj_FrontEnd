@@ -42,7 +42,7 @@ async function renderCatalog(watches) {
         
         const catalogSortedItemsElement = document.getElementById('catalogItems_'+watch.type);
         catalogSortedItemsElement.innerHTML += itemHtml;
-        // Simulate 3-second rendering delay for each item
-        await new Promise(resolve => setTimeout(resolve, 3000));
+        // Simulate 2-second rendering delay for each item
+        await new Promise(resolve => setTimeout(resolve, 2000));
     }
 }
