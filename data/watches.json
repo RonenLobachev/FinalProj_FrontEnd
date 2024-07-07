@@ -1,0 +1,20 @@
+[
+    {
+        "id": "item1",
+        "name": "Heart Rate Monitor FD1000",
+        "image": "css/images/handwatch_1.png",
+        "description": "For the first steps in heart rate-based training",
+        "oldPrice": 750,
+        "currentPrice": 500,
+        "type": "smart"
+    },
+    {
+        "id": "item2",
+        "name": "Heart Rate Monitor FD2000",
+        "image": "css/images/handwatch_2.png",
+        "description": "For the first steps in heart rate-based training",
+        "oldPrice": 850,
+        "currentPrice": 700,
+        "type": "classic"
+    }
+]

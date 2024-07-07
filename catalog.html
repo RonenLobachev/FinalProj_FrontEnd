@@ -49,84 +49,14 @@
                     <li class="catalog_tab"><div>Smart</div></li>
                     <li class="catalog_tab"><div>Classic</div></li>
                 </ul>
-                <div class="catalog_content catalog_content_active">
-                    <div class="catalog-item" id="item1">
-                        <div class="catalog-item_wrapper">
-                            <div class="catalog-item_content">
-                                <img src="css/images/handwatch_1.png" alt="handwatch" class="catalog-item_img">
-                                <div class="catalog-item_subtitle">Heart Rate Monitor FD1000</div>
-                                <div class="catalog-item_descr">For the first steps in heart rate-based training</div>
-                                <a href="#" class="catalog-item_link">MORE DETAILS</a>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="catalog-item_footer">
-                            <div class="catalog-item_prices">
-                                <div class="catalog-item_old-price">750 $</div>
-                                <div class="catalog-item_current-price">500 $</div>
-                            </div>
-                            <button class="button button_mini" type="button" onclick="addToCart('item1')">BUY</button>
-                        </div>
-                    </div>
-                    <div class="catalog-item" id="item2">
-                        <div class="catalog-item_wrapper">
-                            <div class="catalog-item_content">
-                                <img src="css/images/handwatch_2.png" alt="handwatch" class="catalog-item_img">
-                                <div class="catalog-item_subtitle">Heart Rate Monitor FD2000</div>
-                                <div class="catalog-item_descr">For the first steps in heart rate-based training</div>
-                                <a href="#" class="catalog-item_link">MORE DETAILS</a>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="catalog-item_footer">
-                            <div class="catalog-item_prices">
-                                <div class="catalog-item_old-price">850 $</div>
-                                <div class="catalog-item_current-price">700 $</div>
-                            </div>
-                            <button class="button button_mini" type="button" onclick="addToCart('item2')">BUY</button>
-                        </div>
-                    </div>   
+                <div id="catalogItems" class="catalog_content catalog_content_active">
                     
                 </div>
-                <div class="catalog_content">
-                    <div class="catalog-item" id="item1">
-                        <div class="catalog-item_wrapper">
-                            <div class="catalog-item_content">
-                                <img src="css/images/handwatch_1.png" alt="handwatch" class="catalog-item_img">
-                                <div class="catalog-item_subtitle">Heart Rate Monitor FD1000</div>
-                                <div class="catalog-item_descr">For the first steps in heart rate-based training</div>
-                                <a href="#" class="catalog-item_link">MORE DETAILS</a>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="catalog-item_footer">
-                            <div class="catalog-item_prices">
-                                <div class="catalog-item_old-price">750 $</div>
-                                <div class="catalog-item_current-price">500 $</div>
-                            </div>
-                            <button class="button button_mini" type="button" onclick="addToCart('item1')">BUY</button>
-                        </div>
-                    </div>      
+                <div id="catalogItems_smart" class="catalog_content">
+                    
                 </div>
-                <div class="catalog_content">
-                    <div class="catalog-item" id="item2">
-                        <div class="catalog-item_wrapper">
-                            <div class="catalog-item_content">
-                                <img src="css/images/handwatch_2.png" alt="handwatch" class="catalog-item_img">
-                                <div class="catalog-item_subtitle">Heart Rate Monitor FD2000</div>
-                                <div class="catalog-item_descr">For the first steps in heart rate-based training</div>
-                                <a href="#" class="catalog-item_link">MORE DETAILS</a>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="catalog-item_footer">
-                            <div class="catalog-item_prices">
-                                <div class="catalog-item_old-price">850 $</div>
-                                <div class="catalog-item_current-price">700 $</div>
-                            </div>
-                            <button class="button button_mini" type="button" onclick="addToCart('item2')">BUY</button>
-                        </div>
-                    </div>   
+                <div id="catalogItems_classic" class="catalog_content">
+                    
                 </div>
                 <div class="catalog_footer">
                     <button class="button button_back" type="button" onclick="window.location.href='shopping-cart.html'" aria-label="To CART" onclick="renderCart()">To cart</button>
@@ -154,5 +84,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="js/script.js"></script>
         <script src="js/render_cart.js"></script>
+        <script src="js/render_catalog.js"></script>
     </body>
 </html>
