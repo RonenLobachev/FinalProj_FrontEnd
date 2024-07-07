@@ -1,3 +1,4 @@
+    //Check if all infomation input correct.
     function validateForm() {
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
@@ -35,7 +36,7 @@
         return isValid;
     }
 
-
+//Check if all infomation input correct.
 function validatePaymentForm() {
     let isValid = true;
 
@@ -43,6 +44,7 @@ function validatePaymentForm() {
     const cardNumber = document.getElementById("cardNumber").value;
     const expiry = document.getElementById("expiry").value;
     const cvv = document.getElementById("cvv").value;
+
 
     const nameError = document.getElementById("name-error");
     const cardNumberError = document.getElementById("cardNumber-error");
@@ -77,8 +79,8 @@ function validatePaymentForm() {
         isValid = false;
     }
 
+     // Saving to local storage
     if (isValid) {
-        // Save to local storage
         const paymentData = {
             name: name,
             cardNumber: cardNumber,
@@ -92,7 +94,7 @@ function validatePaymentForm() {
     return isValid;
     
 }
-
+//Refill information from local storage to payment form.
 function fillForm() {
     const paymentData = JSON.parse(localStorage.getItem('paymentData'));
     if (paymentData) {
@@ -102,5 +104,5 @@ function fillForm() {
         document.getElementById("cvv").value = paymentData.cvv;
     }
 }
-
+//Listen to form, if is shown to refill info.
 document.getElementById('paymentForm').addEventListener('show.bs.modal', fillForm());

@@ -33,7 +33,7 @@ function addToCart(itemId) {
   }
 }
 
-// Function to get item details based on ID (dummy function, replace with actual implementation)
+// Function to get item details based on ID
 function getItemDetails(itemId) {
   switch (itemId) {
       case 'item1':
