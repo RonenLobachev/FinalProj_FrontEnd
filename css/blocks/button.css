@@ -8,6 +8,7 @@
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
+    transition: transform 0.6s ease;
 }
 
 .button_main {
@@ -29,4 +30,10 @@
 }
 .button_dropdown {
     margin: 0 10px;
+}
+
+
+.button:hover  {
+    
+    transform: scale(1.05) rotate(5deg);
 }

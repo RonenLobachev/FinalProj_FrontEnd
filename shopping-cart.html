@@ -63,14 +63,14 @@
                                     <label class="form-label" for="discountCode">Discount code:</label>
                                     <input type="text" id="discountCode" class="form-control form-control-lg" />
                                 </div>
-                                <button type="button" onclick="applyDiscount()" class="btn btn-outline-danger btn-lg ms-3">Apply</button>
+                                <button type="button" class="btn btn-outline-danger btn-lg ms-3">Apply</button>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body ">
                                 <div class="d-flex justify-content-start align-items-center">
                                     <div class="col-md-2 col-lg-2 col-xl-2">
-                                        <button  type="button" class="btn btn-danger btn-block btn-lg" data-toggle="modal" data-target="#exampleModalCenter">To Pay</button>
+                                        <button  type="button" class="btn btn-danger btn-block btn-lg" data-toggle="modal" data-target="#modal_payment-form">To Pay</button>
                                     </div>
                                     <div class="row d-flex col-md-8">
                                         <div class="d-flex col-md-6">
@@ -97,11 +97,11 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="modal_payment-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id="modal_payment-form" tabindex="-1" role="dialog" aria-labelledby="modal_payment-form-title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Payment Details</h5>
+                        <h5 class="modal-title" id="modal_payment-form-long-title">Payment Details</h5>
                         <button type="button" class="close bg-danger border-0" data-dismiss="modal" aria-label="Close">
                             <span class="text-white" aria-hidden="true">&times;</span>
                         </button>

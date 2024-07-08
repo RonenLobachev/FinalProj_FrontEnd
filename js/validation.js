@@ -17,18 +17,18 @@
 
         let isValid = true;
     
-        if (name == "" || (name.length<3)) {
+        if ((name.length<3)) {
         
             nameError.textContent = "Please enter your name properly. At least 3 letters.";
             isValid = false;
         }
 
-        if (email == "" || !email.includes("@")) {
+        if (!email.includes("@")) {
             emailError.textContent = "Please enter a valid email address.";
             isValid = false;
         }
-
-        if (phone == "" || !/^\d{10}$/.test(phone)) {
+        const phonePattern = /^\d{10}$/;
+        if (!phonePattern.test(phone)) {
             phoneError.textContent = "Please enter a valid 10-digit phone number.";
             isValid = false;
         }
