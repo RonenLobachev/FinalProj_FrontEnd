@@ -1,0 +1,29 @@
+.bg-nav {
+    background-color: #c70101;
+}
+
+.navbar-nav li{
+    transition: all 0.5s ease;
+}
+.navbar-nav li:hover{
+    background-color: #fa9703;;
+    border-radius: 5px;
+    border: none;
+    transform: translateY(-5px);
+}
+
+.navbar-nav .dropdown-menu {
+    position: fixed;
+}
+.dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20%);
+    transition: all .5s;
+}
+.dropdown:hover .dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+}

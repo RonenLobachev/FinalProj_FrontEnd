@@ -33,8 +33,13 @@
     cursor: pointer;
     border-radius: 5px;
     background-color: #fff;
+    transition: transform 0.5s ease;
     
  }
+
+.catalog_tab:hover{
+  transform: translateY(-5px);
+}
  
  .catalog_tab_active {
     background-color: #c70101;
