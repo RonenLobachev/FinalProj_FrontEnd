@@ -1,4 +1,5 @@
-
+  //load nav bar from navbar.html for every hyml pages
+  $("#nav-placeholder").load("navbar.html")
   // Catalog Tabs Functionality.
   $('ul.catalog_tabs').on('click', 'li:not(.catalog_tab_active)', function() {
       $(this)

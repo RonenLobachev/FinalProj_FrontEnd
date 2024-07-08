@@ -2,3 +2,9 @@
     padding-top: 70px;
     background-color: #f6f6f6;
 }
+.img-fluid{
+    transition: all 1s ease;
+}
+.img-fluid:hover{
+    transform: scale(1.4);
+}
