@@ -42,8 +42,8 @@ async function renderCatalog(watches) {
         // Add also to section of smart watch or classic
         const catalogSortedItemsElement = document.getElementById('catalogItems_'+watch.type);
         catalogSortedItemsElement.innerHTML += itemHtml;
-        // Simulate 2-second rendering delay for each item
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Simulate 1-second rendering delay for each item
+        await new Promise(resolve => setTimeout(resolve, 1000));
     }
 }
 
