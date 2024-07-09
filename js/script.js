@@ -1,6 +1,10 @@
 //load footer and nav bar from navbar.html for every hyml pages
-$("#nav-placeholder").load("navbar.html");
+$("#nav-placeholder").load("navbar.html", function() {
+  // Call updateCartDropdown only after navbar is loaded
+  updateCartDropdown();
+});
 $("#footer-placeholder").load("footer.html");
+
 // Catalog Tabs Functionality.
 $('ul.catalog_tabs').on('click', 'li:not(.catalog_tab_active)', function() {
     $(this)
@@ -42,5 +46,3 @@ function updateCartDropdown() {
   };
   cartDropdown.appendChild(goToCartButton);
 }
-
-updateCartDropdown();
