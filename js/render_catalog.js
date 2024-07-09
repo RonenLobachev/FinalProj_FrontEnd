@@ -50,27 +50,24 @@ async function renderCatalog(watches) {
 // Function to add item to cart by ID
 async function addToCart(itemId) {
     let item = await getItemDetails(itemId);
-    if (item) {
-        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        let existingItem = cartItems.find(cartItem => cartItem.id == item.id);
-        if (existingItem) {
-            existingItem.quantity++;
-        } else {
-            item.quantity = 1;
-            cartItems.push(item);
-        }
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
-        let totalPrice = parseInt(localStorage.getItem('totalPrice')) || [];
-        if(totalPrice){
-        totalPrice += item.currentPrice;
-        localStorage.setItem('totalPrice', totalPrice);
-        }
-        
-        alert('Item added to cart!');
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    let existingItem = cartItems.find(cartItem => cartItem.id == item.id);
+    if (existingItem) {
+        existingItem.quantity++;
     } else {
-        console.error('Item not found with ID: ' + itemId);
+        item.quantity = 1;
+        cartItems.push(item);
     }
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    let totalPrice = parseInt(localStorage.getItem('totalPrice')) || [];
+    if(totalPrice){
+    totalPrice += item.currentPrice;
+    localStorage.setItem('totalPrice', totalPrice);
+    }
+    updateCartDropdown();
+    alert('Item added to cart!');
+    
 }
   
 // Function to get item details based on ID
