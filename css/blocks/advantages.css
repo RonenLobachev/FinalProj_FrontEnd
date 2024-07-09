@@ -13,6 +13,7 @@
 
 .advantages_item {
     width: 250px;
+    margin: 15px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,10 +40,7 @@
     color: #ff0000;
     text-decoration: underline;
 }
-.icon_cup_animated {
-    background: linear-gradient(to right, white, hsl(0, 0%, 0%) 10%);
-    animation: shine 2s infinite linear;
-}
+
 .icon_heart_animated {
     animation-name: heartbeat;
     animation-duration: 2s;
