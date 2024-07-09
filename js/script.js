@@ -1,13 +1,12 @@
-  //load footer and nav bar from navbar.html for every hyml pages
-  $("#nav-placeholder").load("navbar.html");
-  $("#footer-placeholder").load("footer.html");
-  // Catalog Tabs Functionality.
-  $('ul.catalog_tabs').on('click', 'li:not(.catalog_tab_active)', function() {
-      $(this)
-        .addClass('catalog_tab_active').siblings().removeClass('catalog_tab_active')
-        .closest('div.container').find('div.catalog_content').removeClass('catalog_content_active').eq($(this).index()).addClass('catalog_content_active');
-  });
-
+//load footer and nav bar from navbar.html for every hyml pages
+$("#nav-placeholder").load("navbar.html");
+$("#footer-placeholder").load("footer.html");
+// Catalog Tabs Functionality.
+$('ul.catalog_tabs').on('click', 'li:not(.catalog_tab_active)', function() {
+    $(this)
+      .addClass('catalog_tab_active').siblings().removeClass('catalog_tab_active')
+      .closest('div.container').find('div.catalog_content').removeClass('catalog_content_active').eq($(this).index()).addClass('catalog_content_active');
+});
 
 // Function to update the cart dropdown menu
 function updateCartDropdown() {
@@ -45,5 +44,3 @@ function updateCartDropdown() {
 }
 
 updateCartDropdown();
-
-

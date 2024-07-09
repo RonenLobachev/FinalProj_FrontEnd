@@ -127,11 +127,7 @@ function loadCartItems() {
 
         });
         document.getElementById('totalPrice').textContent ='$'+ parseInt(localStorage.getItem('totalPrice')).toFixed(2);
-    
-
-
     }
-    
   }
 
 
@@ -189,8 +185,7 @@ function removeFromCart(itemId) {
         localStorage.setItem('totalPrice', newTotalPrice);
     }
     });
-
-
+    
     document.getElementById(itemId).remove();
     isEmptyCart();
 }

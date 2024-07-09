@@ -6,7 +6,7 @@ async function loadCatalog() {
     try {
         const data = await fetch('data/watches.json');
         if (!data.ok) {
-            throw new Error(`HTTP error! Status: ${data.status}`);
+            throw new Error(`HTTP error!`);
         }
         const watches = await data.json();
         await renderCatalog(watches);
@@ -39,7 +39,7 @@ async function renderCatalog(watches) {
             </div>
         `;
         catalogItemsElement.innerHTML += itemHtml;
-        
+        // Add also to section of smart watch or classic
         const catalogSortedItemsElement = document.getElementById('catalogItems_'+watch.type);
         catalogSortedItemsElement.innerHTML += itemHtml;
         // Simulate 2-second rendering delay for each item
@@ -47,45 +47,45 @@ async function renderCatalog(watches) {
     }
 }
 
-   // Function to add item to cart by ID
-    async function addToCart(itemId) {
-        let item = await getItemDetails(itemId);
-        if (item) {
-            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            let existingItem = cartItems.find(cartItem => cartItem.id == item.id);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                item.quantity = 1;
-                cartItems.push(item);
-            }
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    
-            let totalPrice = parseInt(localStorage.getItem('totalPrice')) || [];
-            if(totalPrice){
-            totalPrice += item.currentPrice;
-            localStorage.setItem('totalPrice', totalPrice);
-            }
-            
-            alert('Item added to cart!');
+// Function to add item to cart by ID
+async function addToCart(itemId) {
+    let item = await getItemDetails(itemId);
+    if (item) {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let existingItem = cartItems.find(cartItem => cartItem.id == item.id);
+        if (existingItem) {
+            existingItem.quantity++;
         } else {
-            console.error('Item not found with ID: ' + itemId);
+            item.quantity = 1;
+            cartItems.push(item);
         }
-    }
-  
-  // Function to get item details based on ID
-    async function getItemDetails(itemId) {
-        try {
-            const data = await fetch('data/watches.json');
-            if (!data.ok) {
-                throw new Error(`HTTP error! Status: ${data.status}`);
-            }
-            const watches = await data.json();
-            let item = watches.find(watch => watch.id == itemId);
-            return item;
-        } catch (error) {
-            console.error('Failed to fetch item details:', error);
-            return null;
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        let totalPrice = parseInt(localStorage.getItem('totalPrice')) || [];
+        if(totalPrice){
+        totalPrice += item.currentPrice;
+        localStorage.setItem('totalPrice', totalPrice);
         }
+        
+        alert('Item added to cart!');
+    } else {
+        console.error('Item not found with ID: ' + itemId);
     }
+}
   
+// Function to get item details based on ID
+async function getItemDetails(itemId) {
+    try {
+        const data = await fetch('data/watches.json');
+        if (!data.ok) {
+            throw new Error(`HTTP error! Status: ${data.status}`);
+        }
+        const watches = await data.json();
+        let item = watches.find(watch => watch.id == itemId);
+        return item;
+    } catch (error) {
+        console.error('Failed to fetch item details:', error);
+        return null;
+    }
+}
+
