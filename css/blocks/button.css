@@ -34,6 +34,6 @@
 
 
 .button:hover  {
-    background-color: #fa9703;;
+    background-color: #fa9703;
     transform: scale(1.05) rotate(5deg);
 }
