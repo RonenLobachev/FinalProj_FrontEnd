@@ -2,13 +2,19 @@ document.addEventListener('DOMContentLoaded', async function() {
     await loadCatalog();
 });
 
+const apiUrl = "http://localhost:5251/api/watches";
+
 async function loadCatalog() {
     try {
-        const data = await fetch('data/watches.json');
-        if (!data.ok) {
-            throw new Error(`HTTP error!`);
+        const response = await fetch(apiUrl);
+
+        // Check if the response is successful
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const watches = await data.json();
+
+        // Parse the JSON data from the response
+        const watches = await response.json();
         await renderCatalog(watches);
     } catch (error) {
         console.error('Failed to load catalog:', error);
@@ -22,7 +28,7 @@ async function renderCatalog(watches) {
             <div class="catalog-item" id="${watch.id}">
                 <div class="catalog-item_wrapper">
                     <div class="catalog-item_content">
-                        <img src="${watch.image}" alt="handwatch" class="catalog-item_img">
+                        <img src="${watch.imagePath}" alt="handwatch" class="catalog-item_img">
                         <div class="catalog-item_subtitle">${watch.name}</div>
                         <div class="catalog-item_descr">${watch.description}</div>
                         <a href="#" class="catalog-item_link">MORE DETAILS</a>
@@ -39,15 +45,13 @@ async function renderCatalog(watches) {
             </div>
         `;
         catalogItemsElement.innerHTML += itemHtml;
-        // Add also to section of smart watch or classic
         const catalogSortedItemsElement = document.getElementById('catalogItems_'+watch.type);
-        catalogSortedItemsElement.innerHTML += itemHtml;
-        // Simulate 1-second rendering delay for each item
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        if (catalogSortedItemsElement) {
+            catalogSortedItemsElement.innerHTML += itemHtml;
+        }
     }
 }
 
-// Function to add item to cart by ID
 async function addToCart(itemId) {
     let item = await getItemDetails(itemId);
     let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -60,24 +64,21 @@ async function addToCart(itemId) {
     }
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-    let totalPrice = parseInt(localStorage.getItem('totalPrice')) || [];
-    if(totalPrice){
+    let totalPrice = parseInt(localStorage.getItem('totalPrice')) || 0;
     totalPrice += item.currentPrice;
     localStorage.setItem('totalPrice', totalPrice);
-    }
+
     updateCartDropdown();
     alert('Item added to cart!');
-    
 }
-  
-// Function to get item details based on ID
+
 async function getItemDetails(itemId) {
     try {
-        const data = await fetch('data/watches.json');
-        if (!data.ok) {
-            throw new Error(`HTTP error! Status: ${data.status}`);
+        const response = await fetch(apiUrl);  // Fetch from the same API
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        const watches = await data.json();
+        const watches = await response.json();
         let item = watches.find(watch => watch.id == itemId);
         return item;
     } catch (error) {
@@ -85,4 +86,3 @@ async function getItemDetails(itemId) {
         return null;
     }
 }
-
