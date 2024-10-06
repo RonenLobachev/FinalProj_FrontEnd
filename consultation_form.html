@@ -34,35 +34,5 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="js/validation.js"></script>
         <script src="js/script.js"></script>
-        <!--TODO: Move script below to dedicated file-->
-        <script>
-            document.getElementById('consultation-form').addEventListener('submit', async function(event) {
-              event.preventDefault();
-          
-              const data = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value
-              };
-          
-              try {
-                const response = await fetch('http://localhost:5000/api/consultation', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(data)
-                });
-          
-                if (response.ok) {
-                  alert('Consultation request submitted successfully!');
-                } else {
-                  alert('Failed to submit consultation request.');
-                }
-              } catch (error) {
-                console.error('Error:', error);
-              }
-            });
-          </script>
     </body>
 </html>
