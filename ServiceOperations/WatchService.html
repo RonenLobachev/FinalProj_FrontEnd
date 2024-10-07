@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Watch Management</h2>
+
+        <!-- Form to Add a New Watch -->
+        <h3>Add a New Watch</h3>
+        <form id="add-watch-form">
+            <div class="mb-3">
+                <label for="add-name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="add-name" placeholder="Watch Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="add-image" class="form-label">Image Path</label>
+                <input type="text" class="form-control" id="add-image" placeholder="Image Path" required>
+            </div>
+            <div class="mb-3">
+                <label for="add-old-price" class="form-label">Old Price</label>
+                <input type="number" class="form-control" id="add-old-price" placeholder="Old Price" required>
+            </div>
+            <div class="mb-3">
+                <label for="add-current-price" class="form-label">Current Price</label>
+                <input type="number" class="form-control" id="add-current-price" placeholder="Current Price" required>
+            </div>
+            <div class="mb-3">
+                <label for="add-type" class="form-label">Type</label>
+                <input type="text" class="form-control" id="add-type" placeholder="Watch Type" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Watch</button>
+        </form>
+
+        <h3 class="mt-5">Update and Delete Watches</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Old Price</th>
+                    <th>Current Price</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="watch-table">
+                <!-- All data will be dynynicly loaded in JS. See botomm section of script -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadWatches();
+        });
+
+        function loadWatches() {
+            fetch('http://localhost:5251/api/watch')
+                .then(response => response.json())
+                .then(data => {
+                    const watchTable = document.getElementById('watch-table');
+                    watchTable.innerHTML = ''; // Clear table for hold refresh events
+                    data.forEach(watch => {
+                        watchTable.innerHTML += `
+                            <tr>
+                                <td>${watch.name}</td>
+                                <td><img src="${watch.imagePath}" alt="${watch.name}" width="50"></td>
+                                <td><input type="number" value="${watch.oldPrice}" id="old-price-${watch.id}" class="form-control"></td>
+                                <td><input type="number" value="${watch.currentPrice}" id="current-price-${watch.id}" class="form-control"></td>
+                                <td>${watch.type}</td>
+                                <td>
+                                    <button onclick="updateWatch(${watch.id})" class="btn btn-success">Update</button>
+                                    <button onclick="deleteWatch(${watch.id})" class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        document.getElementById('add-watch-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const data = {
+                name: document.getElementById('add-name').value,
+                imagePath: document.getElementById('add-image').value,
+                oldPrice: parseFloat(document.getElementById('add-old-price').value),
+                currentPrice: parseFloat(document.getElementById('add-current-price').value),
+                type: document.getElementById('add-type').value
+            };
+
+            fetch('http://localhost:5251/api/watch', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Watch added successfully!');
+                    loadWatches();
+                    // Reset the form
+                    document.getElementById('add-watch-form').reset();
+                } else {
+                    alert('Failed to add watch.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        // Update watch prices
+        function updateWatch(id) {
+            const data = {
+                oldPrice: parseFloat(document.getElementById(`old-price-${id}`).value),
+                currentPrice: parseFloat(document.getElementById(`current-price-${id}`).value)
+            };
+
+            fetch(`http://localhost:5251/api/watch/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Watch updated successfully!');
+                    loadWatches();
+                } else {
+                    alert('Failed to update watch.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Delete a watch
+        function deleteWatch(id) {
+            fetch(`http://localhost:5251/api/watch/${id}`, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Watch deleted successfully!');
+                    loadWatches();
+                } else {
+                    alert('Failed to delete watch.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

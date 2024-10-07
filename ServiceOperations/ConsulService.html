@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Consultation List</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="consultation-table">
+                <!-- All data will be dynynicly loaded in JS. See botomm section of script -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Function to fetch all consultations
+        function loadConsultations() {
+            fetch('http://localhost:5251/api/consultation')
+                .then(response => response.json())
+                .then(data => {
+                    const consultationTable = document.getElementById('consultation-table');
+                    consultationTable.innerHTML = ''; // Clear table
+                    data.forEach(consultation => {
+                        consultationTable.innerHTML += `
+                            <tr>
+                                <td>${consultation.name}</td>
+                                <td>${consultation.phone}</td>
+                                <td>${consultation.email}</td>
+                                <td>
+                                    <button onclick="deleteConsultation(${consultation.id})" class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Function to delete a consultation
+        function deleteConsultation(id) {
+            fetch(`http://localhost:5251/api/consultation/${id}`, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Consultation deleted successfully!');
+                    loadConsultations(); // Reload the list after deletion
+                } else {
+                    alert('Failed to delete consultation.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Load consultations on page load
+        document.addEventListener('DOMContentLoaded', loadConsultations);
+    </script>
+</body>
+</html>

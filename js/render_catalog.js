@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     await loadCatalog();
 });
 
-const apiUrl = "http://localhost:5251/api/watches";
+const apiUrl = "http://localhost:5251/api/watch";
 
 async function loadCatalog() {
     try {
