@@ -15,11 +15,13 @@
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Email</th>
+                    <th>Date</th>
+                    <th>Responded</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="consultation-table">
-                <!-- All data will be dynynicly loaded in JS. See botomm section of script -->
+                <!-- All data will be dynamically loaded in JS -->
             </tbody>
         </table>
     </div>
@@ -38,7 +40,15 @@
                                 <td>${consultation.name}</td>
                                 <td>${consultation.phone}</td>
                                 <td>${consultation.email}</td>
+                                <td>${new Date(consultation.submittedAt).toLocaleString()}</td>
                                 <td>
+                                    <select id="responded-${consultation.id}" class="form-select">
+                                        <option value="false" ${!consultation.responded ? 'selected' : ''}>No</option>
+                                        <option value="true" ${consultation.responded ? 'selected' : ''}>Yes</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button onclick="updateResponded(${consultation.id})" class="btn btn-primary">Update</button>
                                     <button onclick="deleteConsultation(${consultation.id})" class="btn btn-danger">Delete</button>
                                 </td>
                             </tr>
@@ -46,6 +56,28 @@
                     });
                 })
                 .catch(error => console.error('Error:', error));
+        }
+
+        // Function to update the Responded status
+        function updateResponded(id) {
+            const responded = document.getElementById(`responded-${id}`).value;
+
+            fetch(`http://localhost:5251/api/consultation/${id}/updateResponded`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(responded === "true")
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Responded status updated successfully!');
+                    loadConsultations(); // Reload the list after update
+                } else {
+                    alert('Failed to update responded status.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
         }
 
         // Function to delete a consultation
