@@ -1,10 +1,8 @@
-//Check if all infomation input correct.
+// Validation for the consultation form
 function validateForm() {
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
-    
-
 
     const nameError = document.getElementById("name-error");
     const emailError = document.getElementById("email-error");
@@ -13,12 +11,10 @@ function validateForm() {
     nameError.textContent = "";
     emailError.textContent = "";
     phoneError.textContent = "";
-    
 
     let isValid = true;
 
-    if ((name.length<3)) {
-    
+    if (name.length < 3) {
         nameError.textContent = "Please enter your name properly. At least 3 letters.";
         isValid = false;
     }
@@ -27,24 +23,25 @@ function validateForm() {
         emailError.textContent = "Please enter a valid email address.";
         isValid = false;
     }
+
     const phonePattern = /^\d{10}$/;
     if (!phonePattern.test(phone)) {
         phoneError.textContent = "Please enter a valid 10-digit phone number.";
         isValid = false;
     }
-    
+
     return isValid;
 }
 
-//Check if all infomation input correct.
+// Validation for the payment form and order submission
 function validatePaymentForm() {
+    console.log("In cart validation");
     let isValid = true;
 
     const name = document.getElementById("name").value;
     const cardNumber = document.getElementById("cardNumber").value;
     const expiry = document.getElementById("expiry").value;
     const cvv = document.getElementById("cvv").value;
-
 
     const nameError = document.getElementById("name-error");
     const cardNumberError = document.getElementById("cardNumber-error");
@@ -56,7 +53,7 @@ function validatePaymentForm() {
     expiryError.textContent = "";
     cvvError.textContent = "";
 
-    if (name == "" || name.length < 3) {
+    if (name === "" || name.length < 3) {
         nameError.textContent = "Please enter your name properly. At least 3 letters.";
         isValid = false;
     }
@@ -78,31 +75,13 @@ function validatePaymentForm() {
         cvvError.textContent = "Please enter a valid CVV/CVC (3 digits).";
         isValid = false;
     }
+     
+    // If validation passes, submit the order
+    if (isValid) {        
+        submitOrder();
+    }
 
-     // Saving to local storage
-    if (isValid) {
-        const paymentData = {
-            name: name,
-            cardNumber: cardNumber,
-            expiry: expiry,
-            cvv: cvv
-        };
-        localStorage.setItem('paymentData', JSON.stringify(paymentData));
-        alert('Your information was saved.');
-    }
-    
     return isValid;
-    
 }
-//Refill information from local storage to payment form.
-function fillForm() {
-    const paymentData = JSON.parse(localStorage.getItem('paymentData'));
-    if (paymentData) {
-        document.getElementById("name").value = paymentData.name;
-        document.getElementById("cardNumber").value = paymentData.cardNumber;
-        document.getElementById("expiry").value = paymentData.expiry;
-        document.getElementById("cvv").value = paymentData.cvv;
-    }
-}
-//Listen to form, if is shown to refill info.
-document.getElementById('paymentForm').addEventListener('show.bs.modal', fillForm());
+
+

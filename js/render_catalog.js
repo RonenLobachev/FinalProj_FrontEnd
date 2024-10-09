@@ -46,9 +46,9 @@ async function renderCatalog(watches) {
         `;
         catalogItemsElement.innerHTML += itemHtml;
         const catalogSortedItemsElement = document.getElementById('catalogItems_'+watch.type);
-        if (catalogSortedItemsElement) {
-            catalogSortedItemsElement.innerHTML += itemHtml;
-        }
+        catalogSortedItemsElement.innerHTML += itemHtml;
+        // Simulate 1-second rendering delay for each item
+        //await new Promise(resolve => setTimeout(resolve, 1000));
     }
 }
 
@@ -64,10 +64,11 @@ async function addToCart(itemId) {
     }
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-    let totalPrice = parseInt(localStorage.getItem('totalPrice')) || 0;
+    let totalPrice = parseInt(localStorage.getItem('totalPrice')) || [];
+    if(totalPrice){
     totalPrice += item.currentPrice;
     localStorage.setItem('totalPrice', totalPrice);
-
+    }
     updateCartDropdown();
     alert('Item added to cart!');
 }

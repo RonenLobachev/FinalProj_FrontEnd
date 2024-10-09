@@ -115,7 +115,7 @@
             .catch(error => console.error('Error:', error));
         });
 
-        // Update watch prices
+        //TODO: Update only value that chaged. Requirs update for controler in C# too. Now controler get as input full object.
         function updateWatch(id) {
             const data = {
                 id: id,

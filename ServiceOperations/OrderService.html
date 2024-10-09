@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Order Management</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Order Date</th>
+                    <th>Watch IDs</th>
+                    <th>Supplied</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="order-table">
+                <!-- All data will be dynamically loaded in JS. See bottom section of script -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOrders();
+        });
+
+        // Function to load orders from the server
+        function loadOrders() {
+            fetch('http://localhost:5251/api/order')
+                .then(response => response.json())
+                .then(data => {
+                    const orderTable = document.getElementById('order-table');
+                    orderTable.innerHTML = ''; // Clear the table for fresh data
+
+                    data.forEach(order => {
+                        orderTable.innerHTML += `
+                            <tr>
+                                <td>${new Date(order.orederDate).toLocaleString()}</td>
+                                <td>${order.watchIds}</td>
+                                <td>
+                                    <select id="supplied-${order.id}" class="form-select">
+                                        <option value="false" ${!order.supplied ? 'selected' : ''}>No</option>
+                                        <option value="true" ${order.supplied ? 'selected' : ''}>Yes</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button onclick="updateOrder(${order.id})" class="btn btn-primary">Update</button>
+                                    <button onclick="deleteOrder(${order.id})" class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Function to update the Supplied status
+        function updateOrder(id) {
+            const supplied = document.getElementById(`supplied-${id}`).value === 'true';
+
+            fetch(`http://localhost:5251/api/order/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(supplied)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Order status updated successfully!');
+                    loadOrders(); // Reload the list after update
+                } else {
+                    alert('Failed to update order status.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Function to delete an order
+        function deleteOrder(id) {
+            fetch(`http://localhost:5251/api/order/${id}`, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Order deleted successfully!');
+                    loadOrders(); // Reload the list after deletion
+                } else {
+                    alert('Failed to delete order.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
