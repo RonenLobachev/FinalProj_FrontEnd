@@ -118,8 +118,12 @@
         // Update watch prices
         function updateWatch(id) {
             const data = {
+                id: id,
+                name: document.querySelector(`#watch-table tr input#old-price-${id}`).closest("tr").querySelectorAll("td")[0].innerText,
+                imagePath: document.querySelector(`#watch-table tr input#old-price-${id}`).closest("tr").querySelectorAll("td img")[0].src,
                 oldPrice: parseFloat(document.getElementById(`old-price-${id}`).value),
-                currentPrice: parseFloat(document.getElementById(`current-price-${id}`).value)
+                currentPrice: parseFloat(document.getElementById(`current-price-${id}`).value),
+                type: document.querySelector(`#watch-table tr input#old-price-${id}`).closest("tr").querySelectorAll("td")[4].innerText
             };
 
             fetch(`http://localhost:5251/api/watch/${id}`, {
@@ -139,6 +143,7 @@
             })
             .catch(error => console.error('Error:', error));
         }
+
 
         // Delete a watch
         function deleteWatch(id) {
