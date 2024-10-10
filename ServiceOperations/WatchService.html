@@ -69,7 +69,7 @@
                         watchTable.innerHTML += `
                             <tr>
                                 <td>${watch.name}</td>
-                                <td><img src="${watch.imagePath}" alt="${watch.name}" width="50"></td>
+                                <td><img src="../${watch.imagePath}" alt="${watch.name}" width="50"></td>
                                 <td><input type="number" value="${watch.oldPrice}" id="old-price-${watch.id}" class="form-control"></td>
                                 <td><input type="number" value="${watch.currentPrice}" id="current-price-${watch.id}" class="form-control"></td>
                                 <td>${watch.type}</td>
